@@ -2,3 +2,135 @@
 @import "variables";
 @import "mixins";
 @import "base";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: $body-copy;
+  color: $dark-cyan;
+}
+
+h1,
+h3,
+h2 {
+  font-family: $heading-family;
+  font-weight: 600;
+}
+
+p,
+a  {
+  font-family: $body-family;
+}
+
+a {
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.6em;
+  padding: 4px;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-screen {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #EDFBFE url('../img/bg-hero-mobile.svg');
+
+  &__hero {
+    display: inline-block;
+    width: 80vw;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__logo {
+  width: 90px;
+  margin: 5% 0 0 5%;
+  }
+
+  &__try-button {
+    background: #fff;
+    width: 90px;
+    color: $dark-cyan;
+    margin: 5% 5% 0 0;
+  }
+}
+
+.intro {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 80vw;
+
+  &__heading {
+    font-size: 1.3em;
+    padding-top: 15%;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.5em;
+  }
+
+  &__get-started {
+    @include btn-primary;
+  }
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column-reverse;
+  width: 90%;
+  padding: 20px 15px;
+  margin: 0 0 10%;
+  box-shadow: 0px 3px 11px rgba(0,0,0,0.1);
+  border-radius: 10px;
+
+  &__desc {
+    text-align: center;
+  }
+
+  &__img {
+    width: 80%;
+  }
+
+  &.first {
+    margin-top: 10%;
+  }
+}
+
+.call-to-action {
+  width: 90%;
+  padding: 20px 15px;
+  box-shadow: 0px 3px 11px rgba(0,0,0,0.1);
+  border-radius: 10px;
+
+  &__btn {
+    @include btn-primary;
+    width: 80%;
+  }
+}
