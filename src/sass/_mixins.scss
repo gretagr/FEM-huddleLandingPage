@@ -5,3 +5,29 @@
   color: #fff;
   margin: 10% 0;
 }
+
+/* flex-box model mixin. Takes up to 4 arguments. Fourth is optional. If not used, falls back to default. Uses most common flex-box properties. Usage:
+  @include flex(flex, center, flex-end, column);
+
+  Result:
+
+  el {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction column;
+  }
+*/
+
+@mixin flex($display, $justify, $align, $dir:'row') {
+  display: $display;
+  -webkit-box-pack: $justify;
+          justify-content: $justify;
+  -webkit-box-align: $align;
+          align-items: $align;
+  @if ($dir != '') {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: $dir;
+  }
+}

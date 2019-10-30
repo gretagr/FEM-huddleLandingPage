@@ -18,25 +18,27 @@ h2 {
 }
 
 p,
-a  {
+a,
+span {
   font-family: $body-family;
 }
 
 a {
+  text-decoration: none;
+}
+
+.btn {
   text-align: center;
   font-weight: 700;
   font-size: 0.6em;
   padding: 4px;
-  text-decoration: none;
   border-radius: 30px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
 .welcome-screen {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  @include flex(flex, flex-start, center, column);
   height: 100vh;
   width: 100vw;
   background: #EDFBFE url('../img/bg-hero-mobile.svg');
@@ -48,9 +50,7 @@ a {
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(flex, space-between, center);
   width: 100%;
 
   &__logo {
@@ -67,10 +67,7 @@ a {
 }
 
 .intro {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  @include flex(flex, flex-start, center, column);
   text-align: center;
   width: 80vw;
 
@@ -91,24 +88,21 @@ a {
 }
 
 .cards {
+  @include flex(flex, flex-start, center, column);
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
 }
 
 .card {
   box-sizing: border-box;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column-reverse;
   width: 90%;
   padding: 20px 15px;
   margin: 0 0 10%;
   box-shadow: 0px 3px 11px rgba(0,0,0,0.1);
   border-radius: 10px;
+
+  &.first, .second, .third {
+    @include flex(flex, flex-start, center, column-reverse);
+  }
 
   &__desc {
     text-align: center;
@@ -124,13 +118,88 @@ a {
 }
 
 .call-to-action {
-  width: 90%;
-  padding: 20px 15px;
-  box-shadow: 0px 3px 11px rgba(0,0,0,0.1);
-  border-radius: 10px;
+  @include flex(flex, center, center, column);
+  margin: 0 auto;
+  text-align: center;
+  background: #fff;
+  transform: translate(0, 50%);
+
+  &__heading {
+    font-size: 0.9em;
+
+  }
 
   &__btn {
     @include btn-primary;
     width: 80%;
+    margin: 0 0 .83em 0;
   }
+}
+
+
+.footer {
+  background-color: $dark-cyan;
+  padding: 130px 20px 20px 20px;
+
+  span, a, i, p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+  }
+
+
+  .footer_logo {
+    width: 160px;
+    padding-bottom: 20px;
+  }
+
+  .footer_address {
+    @include flex(flex, flex-start, flex-start, column);
+    padding-bottom: 30px;
+
+    &__wrap {
+      @include flex(flex, flex-start, flex-start);
+      padding: 15px 0;
+
+      img {
+        padding-right: 30px;
+        padding-top: 4px;
+        width: 20px;
+      }
+
+      span {
+        line-height: 1.5em;
+      }
+    }
+  }
+
+  &__links {
+    @include flex(flex, flex-start, flex-start, column);
+
+    a {
+      padding-bottom: 15px;
+    }
+  }
+
+  &__social {
+    @include flex(flex, center, center);
+    padding-top: 30px;
+    a {
+      @include flex(flex, center, center);
+      width: 30px;
+      height: 30px;
+      border: 1px solid #fff;
+      border-radius: 15px;
+      margin: 5px;
+    }
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+
+    a {
+      color: rgba($primary, 0.8);
+     }
+  }
+
 }
