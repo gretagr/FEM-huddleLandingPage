@@ -28,27 +28,31 @@ a {
 }
 
 .btn {
-  display: block;
   position: relative;
+  display: block;
   text-align: center;
   font-weight: 700;
   font-size: $mobile-buttons;
   border-radius: 60px;
   box-shadow: 0 1px 10px hsla(0, 0%, 0%, 0.05), 0 1px 10px hsla(0, 0%, 0%, 0.05);
   cursor: pointer;
+
   @include media($extra-large) {
     height: 45px;
   }
 }
 
 .welcome-screen {
+
   @include flex(flex, flex-start, center, column);
   height: auto;
   width: 100vw;
-  background: 	hsl(191, 89%, 96%) url('../img/bg-hero-mobile.svg');
+  background: 	$pale-cyan url('../img/bg-hero-mobile.svg');
+
   @include media($medium) {
-   background: 	hsl(191, 89%, 96%) url('../img/bg-hero-desktop.svg');
+   background: 	$pale-cyan url('../img/bg-hero-desktop.svg');
   }
+
   @include media($extra-large) {
    height: 100vh;
   }
@@ -56,11 +60,12 @@ a {
   &__hero {
     display: inline-block;
     width: 80vw;
-    margin: 0;
+
     @include media($medium) {
       width: 40vw;
       margin: 50px 0;
     }
+
     @include media($extra-large) {
       width: 60vw;
     }
@@ -68,8 +73,10 @@ a {
 }
 
 .header {
+
   @include flex(flex, space-between, center);
   width: 100%;
+
   @include media($medium) {
   height: 15vh;
   }
@@ -77,6 +84,7 @@ a {
   &__logo {
   width: 110px;
   margin: 5% 0 0 5%;
+
   @include media($medium) {
     width: 200px;
     margin: 0 0 0 5vw;
@@ -84,6 +92,7 @@ a {
   }
 
   &__try-button {
+
     @include flex(flex, center, center)
     background: hsl(0, 0%, 100%);
     width: 120px;
@@ -94,6 +103,7 @@ a {
     &:hover {
       transform: scale(1.08);
     }
+
     @include media($medium) {
       width: 190px;
       margin: 0 5vw 0 0;
@@ -102,17 +112,20 @@ a {
 }
 
 .wrapper {
+
   @include media($medium) {
+
     @include flex(flex, center, center, column);
   }
 
   @include media($extra-large) {
+
     @include flex(flex, space-around, center, row);
     width: 100%;
     height: calc(100vh - 150px);
 
   .intro {
-    width: 33vw;
+    width: 36vw;
     text-align: left;
     align-items: flex-start;
   }
@@ -124,6 +137,7 @@ a {
 
 }
 .intro {
+
   @include flex(flex, flex-start, center, column);
   text-align: center;
   width: 80vw;
@@ -131,11 +145,13 @@ a {
   &__heading {
     font-size: $heading-mobile;
     padding-top: 15%;
+
     @include media($medium) {
       font-size: $heading-desktop;
       padding-top: 0;
       width: 60%;
     }
+
     @include media($extra-large) {
       width: 100%;
     }
@@ -143,29 +159,31 @@ a {
 
   &__desc {
     margin: 0;
-    font-size: 0.9em;
-    line-height: 1.5em;
+    line-height: 1.3em;
+
     @include media($medium) {
-      width: 70%;
+      width: 75%;
     }
+
     @include media($extra-large) {
-      line-height: 1.8em;
+      line-height: 1.5em;
       width: 100%;
     }
   }
 
   &__get-started {
+
     @include btn-primary;
   }
 }
 
 .cards {
+
   @include flex(flex, flex-start, center, column);
   width: 100%;
 }
 
 .card {
-  // @include flex(flex, center, flex-start, column-reverse);
   flex-wrap: wrap;
   box-sizing: border-box;
   width: 90%;
@@ -175,9 +193,12 @@ a {
   border-radius: 10px;
 
   &.first, &.second, &.third {
+
     @include flex(flex, flex-start, center, column-reverse);
+
     @include media($medium) {
       flex-direction: row;
+
       h3 {
         font-size: 1.5em;
       }
@@ -185,6 +206,7 @@ a {
   }
 
   &.second {
+
     @include media($medium) {
       flex-direction: row-reverse;
     }
@@ -192,6 +214,7 @@ a {
 
   &__desc {
     text-align: center;
+
     @include media($medium) {
       width: 40%;
       text-align: left;
@@ -201,6 +224,7 @@ a {
 
   &__img {
     width: 80%;
+
     @include media($medium) {
       width: 30%;
     }
@@ -212,15 +236,18 @@ a {
 }
 
 .call-to-action {
+
   @include flex(flex, center, center, column);
   margin: 0 auto;
   text-align: center;
   background: hsl(0, 0%, 100%);
   transform: translate(0, 50%);
+
   @include media($medium) {
     width: 60%;
     padding: 2% 2%;
   }
+
   @include media($extra-large) {
     width: 50%;
     padding: 2% 2%;
@@ -228,14 +255,16 @@ a {
 
   &__heading {
     font-size: 0.9em;
+
     @include media($medium) {
       font-size: 1.6em;
     }
   }
 
   &__btn {
+
     @include btn-primary;
-    margin: 0 0 .83em 0;
+      margin: 0 0 .83em 0;
   }
 }
 
@@ -243,22 +272,27 @@ a {
 .footer {
   background-color: $dark-cyan;
   padding: 130px 5% 2% 5%;
+
   @include media($medium) {
+
     @include flex(flex, space-between, flex-start);
     padding: 20% 5% 0 5%;
   flex-wrap: wrap;
   }
+
   @include media($extra-large) {
-    // @include flex(flex, space-around, flex-start);
     padding: 15% 10% 0 10%;
-  flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   span, a, i, p {
     color: hsla(0, 0%, 100%, 0.8);
     font-size: 0.9em;
   }
+
   a {
     transition: all 0.3s ease;
+
     &:hover {
       color: hsla(0, 0%, 100%, 0.6);
     }
@@ -266,21 +300,25 @@ a {
 
 
   .footer_logo {
-    img{
-      width: 160px;
-    }
     width: 100%;
     padding-bottom: 20px;
+
+    img {
+      width: 160px;
+    }
   }
 
   .footer_address {
+
     @include flex(flex, flex-start, flex-start, column);
     padding-bottom: 30px;
+
     @include media($medium) {
       width: 35%;
     }
 
     &__wrap {
+
       @include flex(flex, flex-start, flex-start);
       padding-bottom: 15px;
 
@@ -297,46 +335,54 @@ a {
   }
 
   &__links {
+
     @include flex(flex, flex-start, flex-start, column);
+
     @include media($medium) {
       width: 15%;
     }
+
     a {
       padding-bottom: 15px;
     }
   }
 
   &__social {
+
     @include flex(flex, center, center);
     padding-top: 30px;
+
     @include media($medium) {
       width: 15%;
       padding-top: 0;
     }
+
     a {
       @include flex(flex, center, center);
       min-width: 30px;
       min-height: 30px;
-      border: 1px solid 	hsl(0, 0%, 100%);
+      border: 1px solid	hsl(0, 0%, 100%);
       border-radius: 15px;
       margin: 7px;
+      transition: all 0.3s ease;
+
       &:hover {
         transform: scale(1.2);
       }
-      transition: all 0.3s ease;
     }
   }
 
   .attribution {
-    font-size: 11px;
+    font-size: $small-text;
     text-align: center;
+
     @include media($medium) {
       width: 100%;
       text-align: right;
     }
+
     a {
       color: rgba($primary, 0.8);
      }
   }
-
 }
