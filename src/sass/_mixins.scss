@@ -1,9 +1,29 @@
 @mixin btn-primary {
   background: $primary;
-  padding: 10px;
-  width: 75%;
-  color: #fff;
+  padding: 15px;
+  width: 80%;
+  color: hsl(0, 0%, 100%);
   margin: 10% 0;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255,255,255,0.4);
+    transition: none;
+  }
+  &:hover:after {
+    width: 120%;
+    background-color: rgba(255,255,255,0);
+    transition: all 0.6s ease;
+  }
+  @include media($medium) {
+    @include flex(flex, center, center)
+    width: auto;
+    padding: 10px 80px;
+  }
 }
 
 /* flex-box model mixin. Takes up to 4 arguments. Fourth is optional. If not used, falls back to default. Uses most common flex-box properties. Usage:
@@ -29,5 +49,26 @@
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: $dir;
+  }
+}
+
+/* Mixin for media queries. Has to have content to work. Usage:
+
+  el {
+    @include media(1200px) {
+      background-color: red;
+    }
+  }
+  Result:
+
+  @media (min-width: 1200px) {
+  el {
+    background-color: red;
+  }
+*/
+
+@mixin media($breakpoint) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
   }
 }
